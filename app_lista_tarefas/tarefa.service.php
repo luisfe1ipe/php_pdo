@@ -35,6 +35,9 @@ Class TarefaService{
     }
 
     public function remover(){
-
+        $query = 'delete from tb_tarefas where id = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id', $this->tarefa->__get('id'));
+        $stmt->execute();
     }
 }
